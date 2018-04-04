@@ -9,7 +9,7 @@ To install [download from this site](https://mdoege.github.io/PySynth/#u)
 ## Notation:
 The first number defines the note.<br/>
 The next number defines the duration of that note.<br/>
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Image of Yaktocat](https://github.com/nsidn98/Music-with-numbers/blob/master/notes.png)
 
 ## Usage:
 Change the `number` in the script(your wish :p).<br/>
