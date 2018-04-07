@@ -18,6 +18,7 @@ A scale is a dict which contains keys for each of the digits.`c3`,`d#`,etc. are 
 ## Usage:
 Change the `number` in the script(your wish :p).<br/>
 Choose the `scale` which may be one of the given ones or you own scale.<br/>
+If you want you can add one line in the loop where the scale is choosen randomly or in particular order in each iteration<br/>
 Give a name to the file and then run the function `create_wav`
 
 
