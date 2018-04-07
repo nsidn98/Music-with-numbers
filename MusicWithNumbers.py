@@ -1,4 +1,5 @@
 from pysynth import pysynth
+import numpy as np
 
 ######################## Scales ###########################
 
@@ -22,7 +23,7 @@ E_sharp_pent={0:['e#3',1],1:['f3',1],2:['g3',2],3:['b3',2],4:['c3',3],\
             5:['e#4',3],6:['f4',4],7:['g4',4],8:['b4',5],9:['c4',5]}
 
 # E pentatonic: E, F#, G#, B, C#, E
-E_pent=D_pent={0:['e3',1],1:['f#3',1],2:['g#3',2],3:['b3',2],4:['c#3',3],\
+E_pent={0:['e3',1],1:['f#3',1],2:['g#3',2],3:['b3',2],4:['c#3',3],\
                5:['e4',3],6:['f#4',4],7:['g#4',4],8:['b4',5],9:['c#4',5]}
 
 # F pentatonic: F, G, A, C, D, F
@@ -73,8 +74,41 @@ def create_wav(number,scale,name):
     keys=tuple(keys)
     pysynth.make_wav(keys, fn = name+".wav")
 
+    
+# for random scales in each iteration uncomment the following and comment the above definition 
+'''
+scale=[C_sharp_pent,D_sharp_pent,D_pent,E_pent,E_sharp_pent,F_pent,F_sharp_pent]
 
+def create_wav(number,scale,name):
+    '''
+    creates a .wav file
+    number= the number which is to be converted to music
+    scale= scale list to be used of which scales would be randomly chosen 
+    name= name of the .wav file to be saved
+    '''
+    
+    number=str(number)
+    elements=[]
+    for element in  number:
+        elements.append(int(element))
+    keys=[]
+    for i in range(len(elements)-1):
+        scale_iter=np.random.choice(scale,len(scale))[0]
+        number=elements[i]
+        next_number=elements[i+1]
+        note=scale_iter[number][0]
+        duration=scale[next_number][1]
+        key=(note,duration)
+        keys.append(key)
+    
+    keys=tuple(keys)
+    pysynth.make_wav(keys, fn = name+".wav")
 
+'''
+    
+    
+    
+#uncomment to create the .wav file
 #create_wav(pi,C_major_pent,'pi')
 #create_wav(e,C_major_pent,'e')
 #create_wav(golden_ratio,C_major_pent,'golden_ratio')
